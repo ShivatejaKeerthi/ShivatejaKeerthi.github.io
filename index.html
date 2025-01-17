@@ -11,6 +11,9 @@
     <header>
       <nav>
         <div class="nav-brand">Shivateja Keerthi</div>
+        <button class="hamburger-menu" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
@@ -204,5 +207,15 @@
     </footer>
 
     <script type="module" src="/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburgerMenu = document.querySelector(".hamburger-menu");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburgerMenu.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+        });
+      });
+    </script>
   </body>
 </html>

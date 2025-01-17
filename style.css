@@ -611,3 +611,103 @@ footer::before {
 .mr-2 {
   margin-right: 0.5rem;
 }
+
+
+/* Hamburger Menu Container */
+.hamburger-menu {
+  display: none; /* Hide on large screens */
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #ff4e50, #f9d423); /* Gradient background */
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  z-index: 1001;
+  transition: background-color 0.3s ease;
+}
+
+.hamburger-menu span {
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background-color: #000; /* Black bars */
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu span:nth-child(1) {
+  top: 8px;
+}
+
+.hamburger-menu span:nth-child(2) {
+  top: 14px;
+}
+
+.hamburger-menu span:nth-child(3) {
+  top: 20px;
+}
+
+/* When Menu is Opened */
+.hamburger-menu.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Navigation Panel (Menu) */
+.nav-links {
+  display: flex; /* Default to flex on large screens */
+  flex-direction: row; /* Horizontal links on larger screens */
+  justify-content: space-around;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links a {
+  color: #000;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Mobile & Tablet View */
+@media (max-width: 768px) {
+  /* Show Hamburger Menu on Mobile & Tablet */
+  .hamburger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Make Navigation Vertical for Mobile */
+  .nav-links {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
